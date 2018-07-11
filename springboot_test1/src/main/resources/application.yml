@@ -1,0 +1,25 @@
+server:
+  port: 9696
+  jsp-servlet:
+    init-parameters:
+      development: true
+#告知springboot使用哪个子配置文件
+spring:
+  profiles:
+    active: prod
+#告知springboot使用jsp视图模板
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  #指定数据源
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ems
+    username: root
+    password: root
+  #告知springboot  mapper文件所在位置 创建sqlSessionFactory
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
